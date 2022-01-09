@@ -6,7 +6,7 @@ import {
 } from '@graphprotocol/graph-ts'
 
 import {
-  createEventID, concat, ROOT_NODE, EMPTY_ADDRESS
+  createEventID, concat, EMPTY_ADDRESS
 } from './utils'
 
 // Import event types from the registry contract ABI
@@ -24,7 +24,7 @@ const BIG_INT_ZERO = BigInt.fromI32(0)
 
 function createDomain(node: string, timestamp: BigInt): Domain {
   let domain = new Domain(node)
-  if(node == ROOT_NODE) {
+  if(node) {
     domain = new Domain(node)
     domain.owner = EMPTY_ADDRESS
     domain.isMigrated = true
@@ -36,7 +36,7 @@ function createDomain(node: string, timestamp: BigInt): Domain {
 
 function getDomain(node: string, timestamp: BigInt = BIG_INT_ZERO): Domain|null {
   let domain = Domain.load(node)
-  if(domain == null && node == ROOT_NODE) {
+  if(domain == null) {
     return createDomain(node, timestamp)
   }
   return domain
@@ -166,7 +166,7 @@ export function handleNewOwnerOldRegistry(event: NewOwnerEvent): void {
 export function handleNewResolverOldRegistry(event: NewResolverEvent): void {
   let node = event.params.node.toHexString()
   let domain = getDomain(node, event.block.timestamp)
-  if(node == ROOT_NODE || !domain.isMigrated){
+  if(node || !domain.isMigrated){
     handleNewResolver(event)
   }
 }
