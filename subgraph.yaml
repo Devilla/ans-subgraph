@@ -1,8 +1,8 @@
-specVersion: 0.0.3
+specVersion: 0.0.2
 description: >-
   A secure & decentralized way to address resources on and off the blockchain
   using simple, human-readable names. Access domains and transfer history.
-repository: 'https://github.com/muellners/ans-subgraph'
+repository: 'https://github.com/Devilla/ans-subgraph'
 schema:
   file: ./schema.graphql
 dataSources:
@@ -10,11 +10,11 @@ dataSources:
     name: ENSRegistry
     network: fuji
     source:
-      address: '0x1F68692D58bABeDC2549a49a2F73cf05fc078af1'
+      address: '0x36479f8eB17e2C7e05427E3c121E80ff3f8017C9'
       abi: EnsRegistry
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.3
+      apiVersion: 0.0.5
       language: wasm/assemblyscript
       file: ./src/ensRegistry.ts
       entities:
@@ -41,7 +41,7 @@ dataSources:
       abi: EnsRegistry
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.3
+      apiVersion: 0.0.5
       language: wasm/assemblyscript
       file: ./src/ensRegistry.ts
       entities:
@@ -67,7 +67,7 @@ dataSources:
       abi: Resolver
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.3
+      apiVersion: 0.0.5
       language: wasm/assemblyscript
       file: ./src/resolver.ts
       entities:
@@ -90,9 +90,7 @@ dataSources:
           handler: handleAddrChanged
         - event: 'AddressChanged(indexed bytes32,uint256,bytes)'
           handler: handleMulticoinAddrChanged
-        - event: >-
-            AuthorisationChanged(indexed bytes32,indexed address,indexed
-            address,bool)
+        - event: 'AuthorisationChanged(indexed bytes32,indexed address,indexed address,bool)'
           handler: handleAuthorisationChanged
         - event: 'ContenthashChanged(indexed bytes32,bytes)'
           handler: handleContentHashChanged
@@ -108,11 +106,11 @@ dataSources:
     name: BaseRegistrar
     network: fuji
     source:
-      address: '0x4fBef92Cec178E41F86a2a0509AadbE0e08654B5'
+      address: '0xcfCBE461A002FFc38905e7A24b71E1Ad01980EB4'
       abi: BaseRegistrar
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.3
+      apiVersion: 0.0.5
       language: wasm/assemblyscript
       file: ./src/ethRegistrar.ts
       entities:
@@ -134,11 +132,11 @@ dataSources:
     name: EthRegistrarController
     network: fuji
     source:
-      address: '0x120C8825D2fc4519E153c358147eA0813842843d'
+      address: '0x4BEf85c6063bf5b1fB13816f1d383C50aA698566'
       abi: EthRegistrarController
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.3
+      apiVersion: 0.0.5
       language: wasm/assemblyscript
       file: ./src/ethRegistrar.ts
       entities:
@@ -147,9 +145,7 @@ dataSources:
         - name: EthRegistrarController
           file: ./abis/EthRegistrarController.json
       eventHandlers:
-        - event: >-
-            NameRegistered(string,indexed bytes32,indexed
-            address,uint256,uint256)
+        - event: 'NameRegistered(string,indexed bytes32,indexed address,uint256,uint256)'
           handler: handleNameRegisteredByController
         - event: 'NameRenewed(string,indexed bytes32,uint256,uint256)'
           handler: handleNameRenewedByController
