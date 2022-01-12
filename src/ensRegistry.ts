@@ -34,7 +34,7 @@ function createDomain(node: string, timestamp: BigInt): Domain {
   return domain
 }
 
-function getDomain(node: string, timestamp: BigInt = BIG_INT_ZERO): Domain|null {
+function getDomain(node: string, timestamp: BigInt = BIG_INT_ZERO): Domain {
   let domain = Domain.load(node)
   if(domain == null) {
     return createDomain(node, timestamp)
