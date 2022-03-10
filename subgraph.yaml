@@ -34,33 +34,6 @@ dataSources:
         - event: 'NewTTL(indexed bytes32,uint64)'
           handler: handleNewTTL
   - kind: ethereum/contract
-    name: ENSRegistryOld
-    network: avalanche
-    source:
-      address: '0xBC8140FFF449a21429b4960C1F599ed8f90FE587'
-      abi: EnsRegistry
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.5
-      language: wasm/assemblyscript
-      file: ./src/ensRegistry.ts
-      entities:
-        - Domain
-        - Account
-        - Resolver
-      abis:
-        - name: EnsRegistry
-          file: ./abis/Registry.json
-      eventHandlers:
-        - event: 'Transfer(indexed bytes32,address)'
-          handler: handleTransferOldRegistry
-        - event: 'NewOwner(indexed bytes32,indexed bytes32,address)'
-          handler: handleNewOwnerOldRegistry
-        - event: 'NewResolver(indexed bytes32,address)'
-          handler: handleNewResolverOldRegistry
-        - event: 'NewTTL(indexed bytes32,uint64)'
-          handler: handleNewTTLOldRegistry
-  - kind: ethereum/contract
     name: Resolver
     network: avalanche
     source:
