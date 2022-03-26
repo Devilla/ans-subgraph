@@ -8,9 +8,9 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: ENSRegistry
-    network: fuji
+    network: avalanche
     source:
-      address: '0x1F68692D58bABeDC2549a49a2F73cf05fc078af1'
+      address: '0x37913A8722954A0736F79Db25c2e0635118eeDC8'
       abi: EnsRegistry
     mapping:
       kind: ethereum/events
@@ -35,9 +35,9 @@ dataSources:
           handler: handleNewTTL
   - kind: ethereum/contract
     name: ENSRegistryOld
-    network: fuji
+    network: avalanche
     source:
-      address: '0x1F68692D58bABeDC2549a49a2F73cf05fc078af1'
+      address: '0x37913A8722954A0736F79Db25c2e0635118eeDC8'
       abi: EnsRegistry
     mapping:
       kind: ethereum/events
@@ -62,7 +62,7 @@ dataSources:
           handler: handleNewTTLOldRegistry
   - kind: ethereum/contract
     name: Resolver
-    network: fuji
+    network: avalanche
     source:
       abi: Resolver
     mapping:
@@ -106,9 +106,9 @@ dataSources:
           handler: handleTextChanged
   - kind: ethereum/contract
     name: BaseRegistrar
-    network: fuji
+    network: avalanche
     source:
-      address: '0x4fBef92Cec178E41F86a2a0509AadbE0e08654B5'
+      address: '0xa3Acaa140222047317D19F682C7C920E9540A91E'
       abi: BaseRegistrar
     mapping:
       kind: ethereum/events
@@ -132,9 +132,9 @@ dataSources:
           handler: handleNameTransferred
   - kind: ethereum/contract
     name: EthRegistrarController
-    network: fuji
+    network: avalanche
     source:
-      address: '0x120C8825D2fc4519E153c358147eA0813842843d'
+      address: '0x11Fa7d827e18f28F4e3B2F4D4D8C5a62bCC8C5b3'
       abi: EthRegistrarController
     mapping:
       kind: ethereum/events

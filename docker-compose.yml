@@ -19,7 +19,7 @@ services:
       ipfs: 'ipfs:5001'
       extra_hosts: 'host.docker.internal:host-gateway'
       # Change next line if you want to connect to a different JSON-RPC endpoint
-      ethereum: 'mainnet:http://host.docker.internal:9650/ext/bc/C/rpc'
+      ethereum: 'avalanche:http://host.docker.internal:9650/ext/bc/C/rpc'
       GRAPH_LOG: info
   ipfs:
     image: ipfs/go-ipfs:v0.4.23
